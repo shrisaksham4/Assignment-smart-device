@@ -9,8 +9,8 @@ It supports device registration, updates, logs, and usage aggregation.
 
 ### 1. Clone the repo
 
-git clone https://github.com/your-username/smart-home-api.git
-cd smart-home-api
+git clone https://github.com/shrisaksham4/Assignment-smart-device
+cd Assignment-smart-device
 
 ### 2. Install dependencies
 npm install
@@ -31,8 +31,8 @@ Server will run at:
 
 http://localhost:5000
 
-API Documentation
-Authentication
+### 5. API Documentation
+#### Authentication
 
 JWT-based auth is required for all device routes.
 
@@ -40,7 +40,7 @@ Pass token in headers:
 
 Authorization: Bearer <token>
 
-Device Endpoints
+#### Device Endpoints
 1. Register Device
 
 POST /devices
@@ -150,8 +150,20 @@ Response:
   "total_units_last_24h": 15.7
 }
 
-Postman Collection
+### 6. Postman Collection
 
-Import SmartHomeAPI.postman_collection.json into Postman.
+Import Assignment.postman_collection.json into Postman.
 
-Import SmartHomeAPI.postman_environment.json for environment variables (e.g., {{base_url}}, {{token}}).
+Import Assignment.postman_environment.json for environment variables (e.g., {{base_url}}, {{token}}).
+
+### 7. Assumptions Made
+
+Each device belongs to a single user (via owner_id).
+
+JWT authentication is already implemented and tested.
+
+last_active_at is updated only when a heartbeat is received.
+
+Logs store both event type and numeric value.
+
+Usage aggregation is mainly for devices like smart meters.
