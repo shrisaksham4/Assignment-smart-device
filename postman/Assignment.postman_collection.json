@@ -1,0 +1,381 @@
+{
+	"info": {
+		"_postman_id": "5cf34fcf-1917-4069-ae88-1fd2058d1f46",
+		"name": "Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45299680",
+		"_collection_link": "https://sakshamsrivastava-7242809.postman.co/workspace/Learn-Postman~f58a5f65-d9d0-439b-be6a-072d8c0ca7b2/collection/45299680-5cf34fcf-1917-4069-ae88-1fd2058d1f46?action=share&source=collection_link&creator=45299680"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"SecurePass123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"SecurePass123\",\r\n  \"role\": \"user\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/signup",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "registerDevice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTgzZjE1MzNmOWI0NDUwYjExODczMiIsImlhdCI6MTc1NTg1Njc1NiwiZXhwIjoxNzU4NDQ4NzU2fQ.2RKN9uzioWV8hx4b_nZxdxhFh58wTVR_3jR3D-1iKcs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Living Room Light\",\r\n  \"type\": \"light\",\r\n  \"status\": \"active\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/devices",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filterDevices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTgzZjE1MzNmOWI0NDUwYjExODczMiIsImlhdCI6MTc1NTg1Njc1NiwiZXhwIjoxNzU4NDQ4NzU2fQ.2RKN9uzioWV8hx4b_nZxdxhFh58wTVR_3jR3D-1iKcs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/devices?type=light&status=active",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "light"
+								},
+								{
+									"key": "status",
+									"value": "active"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDevice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTgzZjE1MzNmOWI0NDUwYjExODczMiIsImlhdCI6MTc1NTg1Njc1NiwiZXhwIjoxNzU4NDQ4NzU2fQ.2RKN9uzioWV8hx4b_nZxdxhFh58wTVR_3jR3D-1iKcs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Living Room Light\",\r\n  \"status\": \"inactive\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/devices/68a84a194bdce2b078ff4592",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"devices",
+								"68a84a194bdce2b078ff4592"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDevice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTgzZjE1MzNmOWI0NDUwYjExODczMiIsImlhdCI6MTc1NTg1Njc1NiwiZXhwIjoxNzU4NDQ4NzU2fQ.2RKN9uzioWV8hx4b_nZxdxhFh58wTVR_3jR3D-1iKcs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/devices/68a84a194bdce2b078ff4592",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"devices",
+								"68a84a194bdce2b078ff4592"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateLastActive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTgzZjE1MzNmOWI0NDUwYjExODczMiIsImlhdCI6MTc1NTg1Njc1NiwiZXhwIjoxNzU4NDQ4NzU2fQ.2RKN9uzioWV8hx4b_nZxdxhFh58wTVR_3jR3D-1iKcs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/devices/68a8667352bb66227b138c8d/heartbeat",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"devices",
+								"68a8667352bb66227b138c8d",
+								"heartbeat"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Log",
+			"item": [
+				{
+					"name": "createLog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTgzZjE1MzNmOWI0NDUwYjExODczMiIsImlhdCI6MTc1NTg1Njc1NiwiZXhwIjoxNzU4NDQ4NzU2fQ.2RKN9uzioWV8hx4b_nZxdxhFh58wTVR_3jR3D-1iKcs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"event\": \"units_consumed\",\r\n  \"value\": 2.5\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/devices/68a8667352bb66227b138c8d/logs",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"devices",
+								"68a8667352bb66227b138c8d",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchLogs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTgzZjE1MzNmOWI0NDUwYjExODczMiIsImlhdCI6MTc1NTg1Njc1NiwiZXhwIjoxNzU4NDQ4NzU2fQ.2RKN9uzioWV8hx4b_nZxdxhFh58wTVR_3jR3D-1iKcs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/devices/68a8667352bb66227b138c8d/logs?limit=10",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"devices",
+								"68a8667352bb66227b138c8d",
+								"logs"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aggUsage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTgzZjE1MzNmOWI0NDUwYjExODczMiIsImlhdCI6MTc1NTg1Njc1NiwiZXhwIjoxNzU4NDQ4NzU2fQ.2RKN9uzioWV8hx4b_nZxdxhFh58wTVR_3jR3D-1iKcs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/devices/68a8667352bb66227b138c8d/usage?range=24h",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"devices",
+								"68a8667352bb66227b138c8d",
+								"usage"
+							],
+							"query": [
+								{
+									"key": "range",
+									"value": "24h"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:5000",
+			"type": "default"
+		}
+	]
+}
